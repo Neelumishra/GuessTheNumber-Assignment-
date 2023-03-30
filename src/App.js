@@ -10,7 +10,7 @@ function GuessingGame() {
     event.preventDefault();
     const numGuess = parseInt(guess);
     if (isNaN(numGuess)) {
-      setMessage('Please enter a valid number.');
+      setMessage('Please enter a  number.');
     } else if (numGuess < luckyNumber) {
       setAttempts(attempts + 1);
       setMessage(`You guessed ${numGuess}. That's too low!`);
@@ -25,13 +25,13 @@ function GuessingGame() {
 
   return (
     <div>
-      <form onSubmit={handleGuess}>
+      <button onClick={handleGuess}>
         <label>
           Guess the number (1-100):
           <input type="text" value={guess} onChange={event => setGuess(event.target.value)} />
         </label>
         <button type="submit">Guess</button>
-      </form>
+      </button>
       <p>{message}</p>
     </div>
   );
